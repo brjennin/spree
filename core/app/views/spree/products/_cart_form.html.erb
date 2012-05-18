@@ -53,15 +53,16 @@
 <% end %>
 
 <script>
+  var sat_pixel_url = '//shareandtelldev.com:3000/widget/add_to_cart.gif?payload_type=Product&payload_id=185&sku=<%= @product.id %>';
+  sat_pixel =jQuery("<img>");
+  sat_pixel.bind("load",function(){
+    jQuery("#order-form").submit();
+  });
+
+  jQuery(sat_pixel).appendTo('body');
+
   jQuery("#order-form").submit(function(){
-    var img = jQuery("<img />").attr('src', '//shareandtelldev.com:3000/widget/add_to_cart.gif?payload_type=Product&payload_id=185&sku=<%= @product.id %>').load(function() {
-      if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
-        alert("Add to cart tracking failed.");
-        return false;
-      } else {
-        alert("worked?");
-        return false;
-      }
-    });
+    sat_pixel.attr('src',sat_pixel_url);
+    return false;
   });
 </script>
