@@ -61,11 +61,21 @@
 
   jQuery(sat_pixel).appendTo('body');
 
-  // jQuery("#order-form").submit(function(){
-  //   sat_pixel.attr('src',sat_pixel_url);
-  //   var sat_loaded = sat_pixel.load(function(){
-  //     return true;
-  //   });
-  //   return sat_loaded;
-  // });
+  sat_pixel.load(function(){
+
+    // jQuery("#order-form").submit();
+  });
+  var sat_added_to_cart = false;
+
+  jQuery("#order-form").submit(function(){
+    if(sat_added_to_cart == false){
+      sat_pixel.attr('src',sat_pixel_url);
+      return false;
+    } else {
+      return true;
+    }
+
+
+
+  });
 </script>
