@@ -1,4 +1,4 @@
-<%= form_for :order, :url => populate_orders_url do |f| %>
+<%= form_for :order, :url => populate_orders_url, :id => "order-form" do |f| %>
   <div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
     <% if @product.has_variants? %>
@@ -53,9 +53,10 @@
 <% end %>
 
 <script>
-  jQuery("#add-to-cart-button").submit(function(){
-    alert("mumbojumbo");
-    return false;
-  });
-
+  // jQuery(document).ready(function(){
+    jQuery("#order-form").submit(function(){
+      alert("mumbojumbo");
+      return false;
+    });
+  // });
 </script>
