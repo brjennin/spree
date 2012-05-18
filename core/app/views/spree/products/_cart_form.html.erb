@@ -53,10 +53,14 @@
 <% end %>
 
 <script>
-  // jQuery(document).ready(function(){
-    jQuery("#order-form").submit(function(){
-      alert("mumbojumbo");
-      return false;
+  jQuery("#order-form").submit(function(){
+    var img = jQuery("<img />").attr('src', '//shareandtelldev.com:3000/widget/add_to_cart.gif?payload_type=Product&payload_id=185&sku=<%= @product.id %>').load(function() {
+      if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
+        alert("Add to cart tracking failed.");
+        return true;
+      } else {
+        return true;
+      }
     });
-  // });
+  });
 </script>
