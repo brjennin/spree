@@ -55,17 +55,15 @@
 <script>
   var sat_pixel_url = '//shareandtelldev.com:3000/widget/add_to_cart.gif?payload_type=Product&payload_id=185&sku=<%= @product.id %>';
   var sat_pixel = jQuery("<img>");
-  // sat_pixel.bind("load",function(){
-  //   jQuery("#order-form").submit();
-  // });
 
   jQuery(sat_pixel).appendTo('body');
 
-  sat_pixel.load(function(){
 
-    // jQuery("#order-form").submit();
-  });
   var sat_added_to_cart = false;
+  sat_pixel.load(function(){
+    sat_added_to_cart = true;
+    jQuery("#order-form").submit();
+  });
 
   jQuery("#order-form").submit(function(){
     if(sat_added_to_cart == false){
@@ -74,8 +72,5 @@
     } else {
       return true;
     }
-
-
-
   });
 </script>
