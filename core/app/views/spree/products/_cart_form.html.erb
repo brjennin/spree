@@ -57,10 +57,10 @@
     var img = jQuery("<img />").attr('src', '//shareandtelldev.com:3000/widget/add_to_cart.gif?payload_type=Product&payload_id=185&sku=<%= @product.id %>').load(function() {
       if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
         alert("Add to cart tracking failed.");
-        return true;
+        return false;
       } else {
         alert("worked?");
-        return true;
+        return false;
       }
     });
   });
