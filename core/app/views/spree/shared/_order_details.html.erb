@@ -1,5 +1,5 @@
 <div class="row steps-data">
-  
+
   <div class="columns alpha four">
     <h6><%= t(:shipping_address) %> <%= link_to "(#{t(:edit)})", checkout_state_path(:address) unless @order.completed? %></h6>
     <div class="address">
@@ -76,6 +76,7 @@
         <td data-hook="order_item_price" class="price"><span><%= number_to_currency item.price %></span></td>
         <td data-hook="order_item_qty"><%= item.quantity %></td>
         <td data-hook="order_item_total" class="total"><span><%= number_to_currency (item.price * item.quantity) %></span></td>
+        <img src="//shareandtelldev.com:3000/widget/track_store_purchase.gif?payload_type=Product&payload_id=185&sku=<%= item.variant.product.id %>" />
       </tr>
     <% end %>
   </tbody>
