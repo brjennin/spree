@@ -31,8 +31,6 @@
 </tr>
 <% if Rails.env == "development" || Rails.env == "test" %>
   <img src="//shareandtelldev.com:3000/widget/item_in_cart.gif?payload_type=Product&payload_id=185&sku=<%= variant.product.id %>" />
-<% elsif Rails.env == "staging" %>
-  <img src="//shareandtelltest.com/widget/item_in_cart.gif?payload_type=Product&payload_id=185&sku=<%= variant.product.id %>" />
 <% else %>
-  <img src="//shareandtell.com/widget/item_in_cart.gif?payload_type=Product&payload_id=185&sku=<%= variant.product.id %>" />
+  <img src="//shareandtelltest.com/widget/item_in_cart.gif?payload_type=Product&payload_id=185&sku=<%= variant.product.id %>" />
 <% end %>
