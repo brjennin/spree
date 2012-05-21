@@ -53,7 +53,14 @@
 <% end %>
 
 <script>
-  var sat_pixel_url = '//shareandtelldev.com:3000/widget/add_to_cart.gif?payload_type=Product&payload_id=185&sku=<%= @product.id %>';
+  <% if Rails.env == "development" || Rails.env == "test" %>
+    var sat_pixel_url = '//shareandtelldev.com:3000/widget/add_to_cart.gif?payload_type=Product&payload_id=185&sku=<%= @product.id %>';
+  <% elsif Rails.env == "staging" %>
+    var sat_pixel_url = '//shareandtelltest.com/widget/add_to_cart.gif?payload_type=Product&payload_id=185&sku=<%= @product.id %>';
+  <% else %>
+    var sat_pixel_url = '//shareandtell.com/widget/add_to_cart.gif?payload_type=Product&payload_id=185&sku=<%= @product.id %>';
+  <% end %>
+
   var sat_pixel = jQuery("<img>");
 
   jQuery(sat_pixel).appendTo('body');
