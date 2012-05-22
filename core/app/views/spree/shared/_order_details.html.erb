@@ -78,9 +78,9 @@
         <td data-hook="order_item_total" class="total"><span><%= number_to_currency (item.price * item.quantity) %></span></td>
         <% if final %>
           <% if Rails.env == "development" || Rails.env == "test" %>
-            <img src="//shareandtelldev.com:3000/widget/track_store_purchase.gif?payload_type=Product&payload_id=185&sku=<%= item.variant.product.id %>" />
+            <img src="//shareandtelldev.com:3000/widget/track_store_purchase.gif?payload_type=Product&payload_id=2314&sku=<%= item.variant.product.id %>" />
           <% else %>
-            <img src="//shareandtelltest.com/widget/track_store_purchase.gif?payload_type=Product&payload_id=185&sku=<%= item.variant.product.id %>" />
+            <img src="//shareandtelltest.com/widget/track_store_purchase.gif?payload_type=Product&payload_id=2314&sku=<%= item.variant.product.id %>" />
           <% end %>
         <% end %>
       </tr>
